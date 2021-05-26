@@ -26,18 +26,19 @@ def create():
         return jsonify(str(e)), 401
     current_app.db.session.add(project)
     current_app.db.session.commit()
+    
     return ps.jsonify(project), 201
 
 
 @bp_project.route('/modify/<modify_id>', methods=['POST'])
 def mod(modify_id):
     body = request.json
-    if (body["risco_projeto"] > '2' or body["risco_projeto"] < '0'):
+    if (body["risco_projeto"] > 2 or body["risco_projeto"] < 0):
         return jsonify('Invalid risk value'),401
     data_inicio = body["data_inicio"]
     data_fim = body["data_fim"]
-    data_inicio_obj = datetime.datetime.strptime(data_inicio, '%Y-%m-%d %H:%M:%S.%f')
-    data_fim_obj = datetime.datetime.strptime(data_fim, '%Y-%m-%d %H:%M:%S.%f')
+    data_inicio_obj = datetime.datetime.strptime(data_inicio, '%Y-%m-%d')
+    data_fim_obj = datetime.datetime.strptime(data_fim, '%Y-%m-%d')
     body["data_inicio"] = data_inicio_obj
     body["data_fim"] = data_fim_obj
     ps = ProjectSchema()
@@ -45,6 +46,13 @@ def mod(modify_id):
     query.update(body)
     current_app.db.session.commit()
     
+    return ps.jsonify(query.first()), 200
+
+
+@bp_project.route('/getProject/<project_id>', methods=['GET'])
+def getProject(project_id):
+    ps = ProjectSchema()
+    query = Project.query.filter(Project.id == project_id)
     return ps.jsonify(query.first()), 200
 
 @bp_project.route('/delete/<delete_id>', methods=['GET'])

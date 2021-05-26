@@ -10,8 +10,8 @@ def configure(app):
 class Project(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nome_projeto = db.Column(db.String(255), nullable=False)
-    data_inicio = db.Column(db.TIMESTAMP, nullable=False)
-    data_fim = db.Column(db.TIMESTAMP, nullable=False)
+    data_inicio = db.Column(db.Date, nullable=False)
+    data_fim = db.Column(db.Date, nullable=False)
     valor_projeto = db.Column(db.Integer, nullable=False)
     participantes = db.Column(db.String(255), nullable=False)
     risco_projeto = db.Column(db.Integer,nullable=False)
