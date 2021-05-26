@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span *ngIf="projects.length > 0" class="h3">Lista de Projetos</span>
+            <span *ngIf="projects.length == 0"class="h3 " style="margin: 30px;">Sem Projetos Cadastrados</span>
+            <button class="btn btn-dark btn-lg float-right" routerLink='/create-project'>Adiconar</button>
+            <table *ngIf="projects.length > 0" class="table  table-striped mt-4">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Início</th>
+                    <th>Término</th>
+                    <th>Valor</th>
+                    <th>Risco</th>
+                    <th>Participantes</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let project of projects">
+                        <td>{{ project.nome_projeto }}</td>
+                        <td>{{ project.data_inicio }}</td>
+                        <td >{{ project.data_fim }}</td> 
+                        <td>{{ project.valor_projeto | currency }}</td>
+                        <td *ngIf="project.risco_projeto == 0">Baixo</td>
+                        <td *ngIf="project.risco_projeto == 1">Medio</td>
+                        <td *ngIf="project.risco_projeto == 2">Alto</td>
+                        <td>{{ project.participantes }}</td>
+                        <td style="white-space: nowrap">
+                        <i [routerLink]="['/modify-project/',project.id]" class="fas fa-edit fa-md mr-2"></i> 
+                        <i (click)="deleteProject(project.id, project.nome_projeto)" class="far fa-trash-alt fa-md "></i></td>
+                    </tr>
+                    
+                </tbody>
+              </table>
+        </div>
+    </div>
+    
+</div>

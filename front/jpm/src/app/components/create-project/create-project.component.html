@@ -1,0 +1,59 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card card-text-center">
+                <div class="card-body">
+                    <h3>{{titulo}}</h3>
+                    <span *ngIf="submitted && createProject.invalid" class="badge bagde-danger">Todos os campos sao obrigatorios</span>
+                    <span *ngIf="submitted && validateDate" class="badge bagde-danger">Data Inicial maior que a Data Final</span>
+                    <form class="mt-4" [formGroup]="createProject" (ngSubmit)="addModifyProject()">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label class="form-label">Nome do Projeto</label>
+                                <input formControlName="nome_projeto" type="text" class="form-control"  placeholder="Nome">
+                            </div>                          
+                            <div class="col-md-6 mt-4">
+                                <label  class="form-label">Data inicio</label>
+                                <input formControlName="data_inicio" class="form-control" type="date" >
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <label  class="form-label">Data Fim</label>
+                                <input formControlName="data_fim" class="form-control"  type="date" >
+                            </div>
+                            
+                            <div class="col-md-6 mt-4">
+                                <label  class="form-label">Valor do Projeto</label>
+                                <div class="input-group mb-3">                                    
+                                    <span  class="input-group-text">$</span>
+                                    <input formControlName="valor_projeto" type="number" min="0" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                  </div> 
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <div class="form-group">
+                                    <label >Risco</label>
+                                    <select formControlName="risco_projeto" class="form-control" >
+                                      <option  value="0">Baixo</option>
+                                      <option  value="1">Medio</option>
+                                      <option  value="2">Alto</option>
+                                    </select>
+                                  </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <label  class="form-label">Participantes</label>
+                                <input type="text" formControlName="participantes" class="form-control" placeholder="Insira o nome dos participantes separados por virgula">
+                            </div>                          
+                        </div>
+                        <div class="mt-3">
+                            <button routerLink="/list-projects" type="text" class="btn btn-secondary btn-lg mr-3">
+                                Voltar
+                            </button>
+                            <button type="submit" class="btn btn-dark btn-lg">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
