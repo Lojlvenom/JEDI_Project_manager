@@ -39,7 +39,7 @@ export class CreateProjectComponent implements OnInit {
   
   addModifyProject() {
     this.submitted = true;
-    alert(this.createProject)
+    
     if (this.createProject.invalid) {
       return;
     }
@@ -122,7 +122,7 @@ export class CreateProjectComponent implements OnInit {
       response => {
         console.log(response);
         this.submitted = true;
-        this.toastr.success('Project successfully modified!!', 'Project modified!!')
+        this.toastr.info('Project successfully modified!!', 'Project modified!!')
         this.router.navigate(['/list-projects'])
       },
       error => {
