@@ -29,7 +29,7 @@
                         <td style="white-space: nowrap">
                         <i [routerLink]="['/modify-project/',project.id]" class="fas fa-edit fa-md mr-2"></i> 
                         <i (click)="deleteProject(project.id, project.nome_projeto)" class="far fa-trash-alt fa-md mr-2"></i>
-                        <i (click)="getRiskFactor(project.risco_projeto, project.valor_projeto)" data-toggle="modal" data-target="#exampleModal"class="fas fa-calculator"></i></td>
+                        <i (click)="getRiskFactor(project.risco_projeto, project.valor_projeto)" data-toggle="modal" data-target="#calculateModal"class="fas fa-calculator"></i></td>
 
                    </tr>
                     
@@ -41,7 +41,7 @@
 </div>
 
 <!-- Modal -->
-<div  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div  class="modal fade" id="calculateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">

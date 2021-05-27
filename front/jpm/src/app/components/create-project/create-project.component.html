@@ -4,8 +4,8 @@
             <div class="card card-text-center">
                 <div class="card-body">
                     <h3>{{titulo}}</h3>
-                    <span *ngIf="submitted && createProject.invalid" class="badge bagde-danger">Todos os campos sao obrigatorios</span>
-                    <span *ngIf="submitted && validateDate" class="badge bagde-danger">Data Inicial maior que a Data Final</span>
+                    <span *ngIf="submitted && createProject.invalid" class="badge badge-danger badge-lg">Todos os campos sao obrigatorios</span>
+                    <span *ngIf="submitted && validateDate" class="badge badge-danger badge-lg">Data Inicial maior que a Data Final</span>
                     <form class="mt-4" [formGroup]="createProject" (ngSubmit)="addModifyProject()">
                         <div class="row">
                             <div class="col-lg-12">
