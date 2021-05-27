@@ -2,13 +2,21 @@
 Simple project management software.(for jedis only)
 
 ## Installation
+
+### Front-end
+
+- Using default angular cli stack, more information present on README inside jpm folder.
+
+
 ### Back-end
 - Create a python3 virtualenv 
 
 - Use the package manager [pip](https://pip.pypa.io/en/stable/) witin requirements.txt file  to install all required dependencies inside your virtualenv.
 
-
 ## Usage
+### Front-end
+
+- np serve -o 
 
 ### Back-end
 - For development run flask cli commands
