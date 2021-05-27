@@ -36,19 +36,19 @@ export class CreateProjectComponent implements OnInit {
   ngOnInit(): void {
     this.isEdit()
   }
-  
+
   addModifyProject() {
     this.submitted = true;
-    
+
     if (this.createProject.invalid) {
       return;
     }
-    
-    if(this.id === null){
+
+    if (this.id === null) {
       this.addProject()
 
     }
-    else{
+    else {
       this.modifyProject(this.id)
     }
   }
@@ -59,7 +59,7 @@ export class CreateProjectComponent implements OnInit {
     if (this.createProject.invalid) {
       return;
     }
-    console.log(this.createProject);
+  
 
     const project: any = {
       data_fim: this.createProject.value.data_fim,
@@ -77,38 +77,31 @@ export class CreateProjectComponent implements OnInit {
 
     this._projectService.createProject(project).subscribe(
       response => {
-        console.log(response);
         this.submitted = true;
         this.toastr.success('Project successfully added!!', 'Project created!!')
         this.router.navigate(['/list-projects'])
-      },
-      error => {
-        console.log(error);
       });
   }
 
   isEdit() {
     if (this.id !== null) {
       this.titulo = 'Editar Projeto';
- 
-      console.log("opa");
+
+      
       this._projectService.getProject(this.id).subscribe(data => {
-        
+
         this.createProject.get('nome_projeto')?.setValue(data.nome_projeto)
         this.createProject.get('data_inicio')?.setValue(data.data_inicio)
         this.createProject.get('data_fim')?.setValue(data.data_fim)
         this.createProject.get('valor_projeto')?.setValue(data.valor_projeto)
         this.createProject.get('risco_projeto')?.setValue(data.risco_projeto)
         this.createProject.get('participantes')?.setValue(data.participantes)
-               
-      },
-        error => {
-          console.log(error);
-        });
+
+      });
     }
   }
 
-  modifyProject(id:any) {
+  modifyProject(id: any) {
     const project: any = {
       data_fim: this.createProject.value.data_fim,
       data_inicio: this.createProject.value.data_inicio,
@@ -117,16 +110,15 @@ export class CreateProjectComponent implements OnInit {
       risco_projeto: this.createProject.value.risco_projeto,
       valor_projeto: this.createProject.value.valor_projeto
     }
-    
-    this._projectService.modifyProject(id,project).subscribe(
+
+    this._projectService.modifyProject(id, project).subscribe(
       response => {
-        console.log(response);
         this.submitted = true;
         this.toastr.info('Project successfully modified!!', 'Project modified!!')
         this.router.navigate(['/list-projects'])
       },
       error => {
-        console.log(error);
+       
       });
   }
 
