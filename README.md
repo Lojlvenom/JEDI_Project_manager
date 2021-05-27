@@ -14,7 +14,9 @@ npm i
 - Create a python3 virtualenv 
 
 - Use the package manager [pip](https://pip.pypa.io/en/stable/) witin requirements.txt file  to install all required dependencies inside your virtualenv.
-
+```bash
+pip install -r requirements.txt 
+```
 ## Usage
 ### Front-end
 - To open on browser
