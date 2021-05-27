@@ -4,8 +4,10 @@ Simple project management software.(for jedis only)
 ## Installation
 
 ### Front-end
-
-- Using default angular cli stack, more information present on README inside jpm folder.
+- Install project dependencies, run command inside jpm folder.
+```bash
+npm i
+```
 
 
 ### Back-end
@@ -15,8 +17,10 @@ Simple project management software.(for jedis only)
 
 ## Usage
 ### Front-end
-
-- np serve -o 
+- To open on browser
+```bash
+np serve -o 
+```
 
 ### Back-end
 - For development run flask cli commands
